@@ -1,0 +1,17 @@
+---
+10.139.2.61:
+  hostname: 10.139.2.61
+  groups:
+    - iosxe
+10.139.2.62:
+  hostname: 10.139.2.62
+  groups:
+    - iosxe
+10.139.2.63:
+  hostname: 10.139.2.63
+  groups:
+    - iosxe
+10.139.2.11:
+  hostname: 10.139.2.11
+  groups:
+    - iosxe
