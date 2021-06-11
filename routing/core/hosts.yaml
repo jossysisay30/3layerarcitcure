@@ -1,0 +1,37 @@
+CORE-ROU:
+  hostname: 172.16.222.225
+  groups:
+    - iosxe
+  data:
+    interfaces:
+        - name: ethernet 1/0
+          vlan: routed
+          ip:   10.139.3.2
+          mask: 255.255.255.0
+          desc: TO FAS FROM CORE
+        - name: ethernet 0/0
+          vlan: routed
+          ip:   10.139.4.2
+          mask: 255.255.255.0
+          desc: TO MAR FROM CORE
+        - name: ethernet 0/1
+          vlan: routed
+          ip:   10.139.5.2
+          mask: 255.255.255.0
+          desc: TO HOSPITAL FROM CORE
+    ospf:
+      ospf_rid: 1.1.1.1
+      ospf_process: "1"
+      ospf_networks:
+        - ip: 10.139.2.0
+          wildcard: 0.0.0.255
+          area: "0"
+        - ip: 10.139.3.0
+          wildcard: 0.0.0.255
+          area: "0"
+        - ip: 10.139.4.0
+          wildcard: 0.0.0.255
+          area: "0"
+        - ip: 10.139.5.0
+          wildcard: 0.0.0.255
+          area: "0"

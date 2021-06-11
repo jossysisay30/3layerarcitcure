@@ -1,0 +1,11 @@
+---
+iosxe:
+  platform: ios
+  connection_options:
+    scrapli:
+      platform: ios
+      port: 22
+      extras:
+        auth_strict_key: False
+        ssh_config_file: ~/my_ssh_config
+        transport: paramiko

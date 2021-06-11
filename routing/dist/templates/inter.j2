@@ -1,0 +1,27 @@
+! Generated Configuration
+{% for interface in host.interfaces %}
+interface {{ interface.name }}
+  {% if interface.vlan == "trunk" -%}
+  switchport
+  switchport trunk encapsulation dot1q
+  switchport mode trunk
+  switchport trunk allowed vlan all
+  no shutdown
+  {% elif interface.vlan == "routed" -%}
+  no switchport
+  ip address {{ interface.ip }} {{ interface.mask }}
+  description {{ interface.desc }}
+  no shutdown
+  exit
+  {% elif interface.vlan == "svi" -%}
+  ip address {{ interface.ip }} {{ interface.mask }}
+  description {{ interface.desc }}
+  no shutdown
+  exit
+  {% else -%}
+  switchport mode access
+  switchport access vlan {{ interface.vlanID }}
+  spanning-tree portfast edge
+  no shutdown
+  {% endif -%}
+  {% endfor %}

@@ -1,0 +1,5 @@
+{% for n in host.vlans %}
+vlan {{ n.vlanID }}
+   name {{ n.vlanName }}
+!
+{% endfor %}

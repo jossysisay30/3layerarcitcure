@@ -1,0 +1,71 @@
+---
+FAS-ACC:
+  hostname: 172.16.222.228
+  groups:
+    - iosxe
+  data:
+    allowedvlan:
+      - vlanID: 2,3,4,5,6
+    vlans:
+        - vlanID: 2
+          vlanName: vlan_2
+    interfaces:
+      - name: ethernet 0/0
+        vlan: trunk
+      - name: vlan 2
+        vlan: routed
+        ip:   10.139.2.60
+        mask: 255.255.255.0
+        desc: Mangment interface
+      - name: range ethernet 0/2-3
+        vlan: access
+        vlanID: 100
+    DF:
+      - ip: 10.139.2.2
+
+MAR-ACC:
+  hostname: 172.16.222.218
+  groups:
+    - iosxe
+  data:
+    allowedvlan:
+      - vlanID: 2,3,4,5
+    vlans:
+        - vlanID: 4
+          vlanName: vlan_4
+    interfaces:
+      - name: ethernet 0/0
+        vlan: trunk
+      - name: vlan 4
+        vlan: routed
+        ip:   10.136.4.60
+        mask: 255.255.255.0
+        desc: Mangment interface
+      - name: range ethernet 0/2-3
+        vlan: access
+        vlanID: 100
+    DF:
+      - ip: 10.136.4.2
+HOSPITAL-ACC:
+  hostname: 172.16.222.202
+  groups:
+    - iosxe
+  data:
+    allowedvlan:
+      - vlanID: 2,3,4,5
+    vlans:
+      - vlanID: 5
+        vlanName: vlan_5
+    interfaces:
+      - name: ethernet 0/0
+        vlan: trunk
+      - name: vlan 5
+        vlan: routed
+        ip:   10.137.5.60
+        mask: 255.255.255.0
+        desc: Mangment interface
+      - name: range ethernet 0/2-3
+        vlan: access
+        vlanID: 100
+    DF:
+      - ip: 10.137.5.2

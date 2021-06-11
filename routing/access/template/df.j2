@@ -1,0 +1,4 @@
+{% for n in host.DF %}
+ip route 0.0.0.0 0.0.0.0 {{ n.ip }}
+!
+{% endfor %}

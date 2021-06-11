@@ -1,0 +1,95 @@
+FAS-DIS:
+  hostname: 172.16.222.227
+  groups:
+    - iosxe
+  data:
+    vlans:
+        - vlanID: 2
+          vlanName: vlan_2
+    interfaces:
+        - name: ethernet 0/0
+          vlan: trunk
+        - name: ethernet 0/1
+          vlan: routed
+          ip:   10.139.3.3
+          mask: 255.255.255.0
+          desc: TO CORE FROM FAS
+        - name: vlan 2
+          vlan: svi
+          ip:   10.139.2.2
+          mask: 255.255.255.0
+          desc: Mangment Interface
+    ospf:
+      ospf_rid: 2.2.2.2
+      ospf_process: "1"
+      ospf_networks:
+        - ip: 10.139.2.0
+          wildcard: 0.0.0.255
+          area: "0"
+        - ip: 10.139.3.0
+          wildcard: 0.0.0.255
+          area: "0"
+MAR-DIS:
+  hostname: 172.16.222.158
+  groups:
+    - iosxe
+  data:
+    vlans:
+        - vlanID: 4
+          vlanName: vlan_4
+    interfaces:
+        - name: ethernet 0/0
+          vlan: trunk
+        - name: ethernet 0/1
+          vlan: routed
+          ip:   10.139.4.3
+          mask: 255.255.255.0
+          desc: TO CORE FROM MAR
+        - name: vlan 4
+          vlan: svi
+          ip:   10.136.4.2
+          mask: 255.255.255.0
+          desc: Mangment Interface
+    ospf:
+      ospf_rid: 4.4.4.4
+      ospf_process: "1"
+      ospf_networks:
+        - ip: 10.139.4.0
+          wildcard: 0.0.0.255
+          area: "0"
+        - ip: 10.136.4.0
+          wildcard: 0.0.0.255
+          area: "0"
+HOSPITAL-DIS:
+  hostname: 172.16.222.230
+  groups:
+    - iosxe
+  data:
+    vlans:
+        - vlanID: 5
+          vlanName: vlan_5
+        - vlanID: 6
+          vlanName: vlan_6
+    interfaces:
+        - name: ethernet 0/0
+          vlan: trunk
+        - name: ethernet 0/1
+          vlan: routed
+          ip:   10.139.5.3
+          mask: 255.255.255.0
+          desc: TO CORE FROM HOSPITAL
+        - name: vlan 5
+          vlan: svi
+          ip:   10.137.5.2
+          mask: 255.255.255.0
+          desc: Mangment Interface
+    ospf:
+      ospf_rid: 5.5.5.5
+      ospf_process: "1"
+      ospf_networks:
+        - ip: 10.139.5.0
+          wildcard: 0.0.0.255
+          area: "0"
+        - ip: 10.137.5.0
+          wildcard: 0.0.0.255
+          area: "0"
